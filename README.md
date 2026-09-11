@@ -27,6 +27,22 @@ The current default stack is documented in [`STACK.md`](STACK.md):
 
 This is a default, not a prison. A project can replace a piece when the product has a concrete reason.
 
+## Local demo mode
+
+The home route now includes the first vertical-slice demo for a fictional
+authenticated workspace, Atlas Desk. It runs entirely in local React state:
+
+- A landing and demo sign-in entry state
+- A responsive workspace shell with navigation
+- A useful request record list
+- A create-record form
+- Previewable loading, empty, success, and error states
+
+No Clerk or Convex credentials are required for the demo. The intended
+integration seams are the demo sign-in state and the local records array; replace
+those with Clerk session state and Convex queries or mutations when a real
+project is ready.
+
 ## Still intentionally undecided
 
 - Payment provider
