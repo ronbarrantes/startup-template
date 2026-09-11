@@ -16,6 +16,11 @@ pnpm install
 pnpm dev
 ```
 
+The default route opens a local demo mode for the Atlas Desk workspace. Use the
+demo sign-in button to enter the app, create request records, and switch the
+record list between populated, loading, empty, and error previews. All demo data
+is in browser memory and resets on refresh.
+
 ## Environment
 
 Create `.env.local` when you are ready to connect real services:
@@ -29,11 +34,19 @@ Without these values, the app still runs and shows the authenticated-data
 boundary as unconfigured. Clerk authentication and Convex data access do not
 work until real project keys are supplied.
 
+## Integration seams
+
+- Replace the home route's local demo sign-in state with Clerk session state.
+- Replace the local request records array and create handler with Convex queries
+  and mutations.
+- Keep the preview states until the real data path has equivalent loading,
+  empty, success, and error handling.
+
 ## Verification
 
 ```bash
-pnpm typecheck
-pnpm build
+npm run typecheck
+npm run build
 ```
 
 Payments, PostHog, email, storage, deployment, and monitoring are intentionally
